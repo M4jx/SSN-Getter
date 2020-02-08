@@ -6,6 +6,6 @@ The software is only for education puposes and <b>SHOULD NOT BE ABUSED</b>.
 
 Feel free to report issues or re-use the code to learn.
 
-Note: You may need to change the cookie in the code before using it.
+*Note*: You may need to change the cookie in the code before using it.
 
 ![Results](https://i.imgur.com/bCNXBH4.png)
