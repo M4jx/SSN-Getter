@@ -1,6 +1,6 @@
 # SSN-Getter
 
-A simple Proof of Concept of getting someone's SSN using API brute-forcing.
+A simple Proof of Concept of getting someone's SSN using Comviq's API to brute force the last 4 digits of the SSN (personnummer).
 
 The software is only for education puposes and <b>SHOULD NOT BE ABUSED<b>.
 
