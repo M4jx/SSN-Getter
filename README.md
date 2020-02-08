@@ -9,4 +9,5 @@ Feel free to report issues or re-use the code to learn.
 *Note: You may need to change the cookie in the code before using it.*
 
 Final Results:
+
 ![Results](https://i.imgur.com/bCNXBH4.png)
