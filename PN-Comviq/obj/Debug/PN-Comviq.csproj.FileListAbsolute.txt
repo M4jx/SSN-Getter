@@ -1,0 +1,6 @@
+C:\Users\Majx\source\repos\PN-Comviq\PN-Comviq\bin\Debug\PN-Comviq.exe.config
+C:\Users\Majx\source\repos\PN-Comviq\PN-Comviq\bin\Debug\PN-Comviq.exe
+C:\Users\Majx\source\repos\PN-Comviq\PN-Comviq\bin\Debug\PN-Comviq.pdb
+C:\Users\Majx\source\repos\PN-Comviq\PN-Comviq\obj\Debug\PN-Comviq.csprojAssemblyReference.cache
+C:\Users\Majx\source\repos\PN-Comviq\PN-Comviq\obj\Debug\PN-Comviq.exe
+C:\Users\Majx\source\repos\PN-Comviq\PN-Comviq\obj\Debug\PN-Comviq.pdb
