@@ -1,5 +1,7 @@
 # SSN-Getter
 
+<b>Status: Not working</b> (seems like Comviq took action and added more security \*LOL\*). However, I'll try implementing a better solution in the future. 
+
 A simple Proof of Concept of getting someone's SSN (personnummer) using Comviq's API to brute force the last 4 digits.
 
 The software is only for education puposes and <b>SHOULD NOT BE ABUSED</b>.
